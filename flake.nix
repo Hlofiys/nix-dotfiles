@@ -2,8 +2,8 @@
   description = "Home Manager and NixOS configuration of Aylur";
 
   outputs = { home-manager, nixpkgs, ... }@inputs: let
-    username = "demeter";
-    hostname = "nixos";
+    username = "hlofiys";
+    hostname = "sisyphus";
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
@@ -25,6 +25,22 @@
 
     packages.${system}.default = asztal;
   };
+  
+  nixConfig = {
+    # substituers will be appended to the default substituters when fetching packages
+    extra-substituters = [
+      "https://anyrun.cachix.org"
+      "https://hyprland.cachix.org"
+      "https://nix-gaming.cachix.org"
+      # "https://nixpkgs-wayland.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "anyrun.cachix.org-1:pqBobmOjI7nKlsUMV25u9QHa9btJK65/C8vnO3p346s="
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+      # "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
+    ];
+  }; 
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
