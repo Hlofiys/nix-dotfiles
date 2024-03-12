@@ -4,7 +4,7 @@
     /etc/nixos/hardware-configuration.nix
     ./audio.nix
     ./greeter.nix
-    # ./gnome.nix
+    ./gnome.nix
     ./hyprland.nix
     # ./laptop.nix
     ./locale.nix
@@ -17,6 +17,7 @@
     settings = {
       experimental-features = "nix-command flakes";
       auto-optimise-store = true;
+      trusted-users = [username];
     };
   };
 

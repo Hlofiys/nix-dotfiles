@@ -53,7 +53,7 @@ in
       };
 
       input = {
-        kb_layout = "hu";
+        kb_layout = "us";
         follow_mouse = 1;
         touchpad = {
           natural_scroll = "yes";
@@ -124,7 +124,7 @@ in
 
         "ALT, Tab, focuscurrentorlast"
         "CTRL ALT, Delete, exit"
-        "ALT, Q, killactive"
+        "SUPER, Q, killactive"
         "SUPER, F, togglefloating"
         "SUPER, G, fullscreen"
         "SUPER, O, fakefullscreen"

@@ -22,7 +22,6 @@
     gimp
     transmission_4-gtk
     discord
-    teams-for-linux
     icon-library
     dconf-editor
 
@@ -37,6 +36,7 @@
     zip
     unzip
     glib
+    lazygit    
 
     # fun
     glow

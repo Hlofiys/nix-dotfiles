@@ -14,6 +14,6 @@
     LC_TIME = "hu_HU.UTF-8";
   };
 
-  console.useXkbConfig = true;
-  services.xserver.xkb.layout = "hu";
+  console.useXkbConfig = false;
+  services.xserver.xkb.layout = "us";
 }
