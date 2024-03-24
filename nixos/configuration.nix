@@ -44,6 +44,7 @@
     xserver = {
       enable = true;
       excludePackages = [ pkgs.xterm ];
+      videoDrivers = [ "amdgpu" ];
     };
     printing.enable = true;
     flatpak.enable = true;
@@ -91,6 +92,7 @@
 
   # bootloader
   boot = {
+    initrd.kernelModules = [ "amdgpu" ];
     tmp.cleanOnBoot = true;
     supportedFilesystems = [ "ntfs" ];
     loader = {
