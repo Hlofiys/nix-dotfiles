@@ -59,10 +59,10 @@
     #astal.url = "github:Aylur/astal";
     stm.url = "github:Aylur/stm";
 
-    #lf-icons = {
-    #  url = "github:gokcehan/lf";
-    #  flake = false;
-    #};
+    lf-icons = {
+      url = "github:gokcehan/lf";
+      flake = false;
+    };
     firefox-gnome-theme = {
       url = "github:rafaelmardojai/firefox-gnome-theme";
       flake = false;
