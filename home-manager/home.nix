@@ -4,14 +4,14 @@ let
 in
 {
   imports = [
-    ./ags.nix
+   # ./ags.nix
     ./blackbox.nix
     ./browser.nix
-    ./bspwm.nix
+    #./bspwm.nix
     ./dconf.nix
     ./git.nix
     ./helix.nix
-    ./hyprland.nix
+    #./hyprland.nix
     ./lf.nix
     ./neofetch.nix
     ./neovim.nix
@@ -19,13 +19,13 @@ in
     ./sh.nix
     ./starship.nix
     ./stm.nix
-    ./sway.nix
+    #./sway.nix
     ./theme.nix
     ./tmux.nix
     ./wezterm.nix
   ];
 
-  news.display = "show";
+  #news.display = "show";
 
   targets.genericLinux.enable = true;
 
@@ -41,12 +41,11 @@ in
     inherit username homeDirectory;
 
     sessionVariables = {
-      QT_XCB_GL_INTEGRATION = "none"; # kde-connect
       NIXPKGS_ALLOW_UNFREE = "1";
       NIXPKGS_ALLOW_INSECURE = "1";
       BAT_THEME = "base16";
-      GOPATH = "${homeDirectory}/.local/share/go";
-      GOMODCACHE="${homeDirectory}/.cache/go/pkg/mod";
+      #GOPATH = "${homeDirectory}/.local/share/go";
+      #GOMODCACHE="${homeDirectory}/.cache/go/pkg/mod";
     };
 
     sessionPath = [
@@ -67,13 +66,6 @@ in
     "file://${homeDirectory}/.config Config"
     "file://${homeDirectory}/.local/share Local"
   ];
-
-  services = {
-    kdeconnect = {
-      enable = true;
-      indicator = true;
-    };
-  };
 
   programs.home-manager.enable = true;
   home.stateVersion = "21.11";

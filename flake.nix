@@ -17,14 +17,14 @@
       modules = [ ./nixos/configuration.nix ];
     };
 
-   /* homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
+    homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      extraSpecialArgs = { inherit inputs username asztal; };
+      extraSpecialArgs = { inherit inputs username; };
       modules = [ ./home-manager/home.nix ];
       };  
 
-    packages.${system}.default = asztal;
-  */
+    #packages.${system}.default = asztal;
+  
   };
   
   nixConfig = {
@@ -46,10 +46,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    #home-manager = {
-    #  url = "github:nix-community/home-manager";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     #hyprland.url = "github:hyprwm/Hyprland";
     #hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
@@ -57,15 +57,15 @@
     #matugen.url = "github:InioX/matugen";
     #ags.url = "github:Aylur/ags";
     #astal.url = "github:Aylur/astal";
-    #stm.url = "github:Aylur/stm";
+    stm.url = "github:Aylur/stm";
 
     #lf-icons = {
     #  url = "github:gokcehan/lf";
     #  flake = false;
     #};
-    #firefox-gnome-theme = {
-    #  url = "github:rafaelmardojai/firefox-gnome-theme";
-    #  flake = false;
-    #};
+    firefox-gnome-theme = {
+      url = "github:rafaelmardojai/firefox-gnome-theme";
+      flake = false;
+    };
   };
 }

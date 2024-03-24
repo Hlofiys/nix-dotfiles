@@ -1,8 +1,8 @@
 { lib, ... }: with lib.hm.gvariant; {
   dconf.settings = {
     "org/gnome/desktop/input-sources" = {
-      sources = [ (mkTuple [ "xkb" "hu" ]) ];
-      xkb-options = [ "terminate:ctrl_alt_bksp" ];
+      sources = [ (mkTuple [ "xkb" "us" ]) ];
+      xkb-options = [ "grp:alt_shift_toggle" ];
     };
 
     "org/gnome/desktop/interface" = {
@@ -127,7 +127,7 @@
     };
 
     "system/locale" = {
-      region = "hu_HU.UTF-8";
+      region = "en_US.UTF-8";
     };
 
     "com/github/stunkymonkey/nautilus-open-any-terminal" = {
