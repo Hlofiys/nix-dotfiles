@@ -1,7 +1,7 @@
 { lib, ... }: with lib.hm.gvariant; {
   dconf.settings = {
     "org/gnome/desktop/input-sources" = {
-      sources = [ (mkTuple [ "xkb" "us" ]) ];
+      sources = [ (mkTuple [ "xkb" "us" ]) (mkTuple [ "xkb" "ru" ]) ];
       xkb-options = [ "grp:alt_shift_toggle" ];
     };
 
@@ -83,6 +83,7 @@
       stop = [ "AudioStop" ];
       volume-down = [ "AudioLowerVolume" ];
       volume-up = [ "AudioRaiseVolume" ];
+      mute = [ "AudioMute" ];
 
       home = [ "<Super>e" ];
       www = [ "<Super>w" ];
@@ -111,7 +112,7 @@
         "transmission-gtk.desktop"
         "caprine.desktop"
         "teams-for-linux.desktop"
-        "discord.desktop"
+        "vesktop.desktop"
         "spotify.desktop"
         "com.usebottles.bottles.desktop"
         "org.gnome.Software.desktop"

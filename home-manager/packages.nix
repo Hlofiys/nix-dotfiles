@@ -16,14 +16,19 @@
     (mpv.override { scripts = [mpvScripts.mpris]; })
     libreoffice
     spotify
-    caprine-bin
+#    caprine-bin
     d-spy
     github-desktop
     gimp
     transmission_4-gtk
-    discord
+    vesktop
     icon-library
     dconf-editor
+    vscode.fhs     
+    steam
+    telegram-desktop
+    bottles    
+        
 
     # tools
     bat
