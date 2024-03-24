@@ -1,11 +1,11 @@
 { pkgs, username, hostname, ... }: {
 
   imports = [
-    /etc/nixos/hardware-configuration.nix
+    ./hardware-configuration.nix
     ./audio.nix
-    ./greeter.nix
+    #./greeter.nix
     ./gnome.nix
-    ./hyprland.nix
+    #./hyprland.nix
     # ./laptop.nix
     ./locale.nix
   ];
