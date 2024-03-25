@@ -10,6 +10,7 @@
     python3
     nodejs
     cargo
+    dotnet-sdk_8
     gcc13
     gnumake
     unzip

@@ -118,7 +118,8 @@ in
           (map (name: completion name) names);
       in ''
         $env.config = ${conf};
-        ${completions ["cargo" "git" "nix" "npm"]}
+        ${completions ["cargo" "git" "nix" "npm"]};
+        alias fuck = thefuck $"(history | last 1 | get command | get 0)"
       '';
     };
   };

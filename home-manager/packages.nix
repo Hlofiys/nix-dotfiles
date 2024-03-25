@@ -24,11 +24,11 @@
     vesktop
     icon-library
     dconf-editor
-    vscode.fhs     
-    steam
+    vscode.fhs
     telegram-desktop
     bottles    
-        
+    protonup-qt
+    figma-linux
 
     # tools
     bat
@@ -41,7 +41,8 @@
     zip
     unzip
     glib
-    lazygit    
+    lazygit
+    nil
 
     # fun
     glow
@@ -50,5 +51,6 @@
     yabridgectl
     wine-staging
     distrobox
+    ani-cli
   ];
 }

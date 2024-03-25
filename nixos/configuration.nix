@@ -39,6 +39,13 @@
     wget
   ];
 
+  #steam
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  };
+
   # services
   services = {
     xserver = {
@@ -46,16 +53,14 @@
       excludePackages = [ pkgs.xterm ];
       videoDrivers = [ "amdgpu" ];
     };
-    printing.enable = true;
     flatpak.enable = true;
   };
 
-  # logind
-  services.logind.extraConfig = ''
-    HandlePowerKey=ignore
-    HandleLidSwitch=suspend
-    HandleLidSwitchExternalPower=ignore
-  '';
+  # gpu drivers
+  hardware.opengl = {
+    driSupport = true;
+    driSupport32Bit = true;
+  };
 
   # kde connect
   networking.firewall = rec {
@@ -93,6 +98,7 @@
   # bootloader
   boot = {
     initrd.kernelModules = [ "amdgpu" ];
+    kernelPackages = pkgs.linuxPackages_latest;
     tmp.cleanOnBoot = true;
     supportedFilesystems = [ "ntfs" ];
     loader = {

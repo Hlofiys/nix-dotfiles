@@ -38,7 +38,7 @@
     };
 
     "org/gnome/desktop/wm/keybindings" = {
-      close = [ "<Alt>q" ];
+      close = [ "<Super>q" ];
       move-to-workspace-1 = [ "<Shift><Super>1" ];
       move-to-workspace-2 = [ "<Shift><Super>2" ];
       move-to-workspace-3 = [ "<Shift><Super>3" ];
@@ -84,7 +84,6 @@
       volume-down = [ "AudioLowerVolume" ];
       volume-up = [ "AudioRaiseVolume" ];
       mute = [ "AudioMute" ];
-
       home = [ "<Super>e" ];
       www = [ "<Super>w" ];
     };
