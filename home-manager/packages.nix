@@ -29,6 +29,7 @@
     bottles    
     protonup-qt
     figma-linux
+    cartridges
 
     # tools
     bat
