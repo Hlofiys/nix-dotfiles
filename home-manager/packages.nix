@@ -30,6 +30,9 @@
     protonup-qt
     figma-linux
     cartridges
+    postman
+    thunderbird
+    prismlauncher
 
     # tools
     bat

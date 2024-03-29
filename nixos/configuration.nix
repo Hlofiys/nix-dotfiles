@@ -39,6 +39,11 @@
     wget
   ];
 
+  environment.sessionVariables = {
+    DOTNET_ROOT = "${pkgs.dotnet-sdk_8}";
+  };
+
+  
   #steam
   programs.steam = {
     enable = true;
@@ -54,6 +59,8 @@
       videoDrivers = [ "amdgpu" ];
     };
     flatpak.enable = true;
+    tailscale.enable = true;
+    tailscale.useRoutingFeatures = "client";
   };
 
   # gpu drivers

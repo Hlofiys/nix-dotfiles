@@ -13,10 +13,10 @@ let
     name = "adw-gtk3-dark";
     package = pkgs.adw-gtk3;
   };
-  font = {
-    name = "Ubuntu Nerd Font";
-    package = nerdfonts;
-  };
+  # font = {
+  #   name = "Ubuntu Nerd Font";
+  #   package = nerdfonts;
+  # };
   cursorTheme = {
     name = "Qogir";
     size = 24;
@@ -33,7 +33,7 @@ in
       cantarell-fonts
       font-awesome
       theme.package
-      font.package
+      nerdfonts
       cursorTheme.package
       iconTheme.package
       gnome.adwaita-icon-theme
@@ -49,12 +49,12 @@ in
       ".local/share/themes/${theme.name}" = {
         source = "${theme.package}/share/themes/${theme.name}";
       };
+      # .background.csd{
+      #     border-radius: 0;
+      #   }
       ".config/gtk-4.0/gtk.css".text = ''
         window.messagedialog .response-area > button,
         window.dialog.message .dialog-action-area > button,
-        .background.csd{
-          border-radius: 0;
-        }
       '';
     };
   };
@@ -62,14 +62,16 @@ in
   fonts.fontconfig.enable = true;
 
   gtk = {
-    inherit font cursorTheme iconTheme;
+    #font
+    inherit cursorTheme iconTheme;
     theme.name = theme.name;
     enable = true;
+    # decoration{
+    #     border-radius: 0;
+    #   }
     gtk3.extraCss = ''
       headerbar, .titlebar,
-      .csd:not(.popup):not(tooltip):not(messagedialog) decoration{
-        border-radius: 0;
-      }
+      .csd:not(.popup):not(tooltip):not(messagedialog)
     '';
   };
 

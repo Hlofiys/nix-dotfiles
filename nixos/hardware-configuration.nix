@@ -5,22 +5,40 @@
 
 {
   imports =
-    [ (modulesPath + "/profiles/qemu-guest.nix")
+    [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/4d3a9669-06d1-4451-9374-df6ed8407e42";
-      fsType = "ext4";
+    { device = "/dev/disk/by-label/NIXOS_ROOT";
+      fsType = "btrfs";
+      options = [ "subvol=root" "compress=zstd" ];
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-label/NIXOS_ROOT";
+      fsType = "btrfs";
+      options = [ "subvol=home" "compress=zstd"];
+    };
+
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-label/NIXOS_ROOT";
+      fsType = "btrfs";
+      options = [ "subvol=nix" "compress=zstd" "noatime"];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/AB93-6062";
+    { device = "/dev/disk/by-label/NIXOS_BOOT";
       fsType = "vfat";
+    };
+
+  fileSystems."/mnt/files" =
+    { device = "/dev/disk/by-label/Files";
+      fsType = "ext4";
     };
 
   swapDevices = [ ];
@@ -30,7 +48,9 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp1s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp7s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

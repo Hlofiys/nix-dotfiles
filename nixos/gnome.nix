@@ -13,6 +13,7 @@
       nautilus-open-any-terminal
       qogir-icon-theme
       gnome.nautilus-python
+      gnome.gnome-tweaks
     ];
 
     gnome.excludePackages = (with pkgs; [

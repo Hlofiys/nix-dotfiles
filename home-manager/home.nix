@@ -46,6 +46,8 @@ in
       BAT_THEME = "base16";
       #GOPATH = "${homeDirectory}/.local/share/go";
       #GOMODCACHE="${homeDirectory}/.cache/go/pkg/mod";
+      DOTNET_ROOT = "${pkgs.dotnet-sdk_8}";
+      PATH="$PATH:/home/hlofiys/.dotnet/tools";
     };
 
     sessionPath = [
