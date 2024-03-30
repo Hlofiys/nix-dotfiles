@@ -33,6 +33,8 @@
     postman
     thunderbird
     prismlauncher
+    mangohud
+    goverlay
 
     # tools
     bat

@@ -9,14 +9,22 @@
     pulse.enable = true;
     jack.enable = true;
     wireplumber.enable = true;
-    extraConfig.pipewire."92-low-latency" = {
-      "context.properties" = {
-        "default.clock.rate" = 44100;
-        "default.clock.quantum" = 512;
-        "default.clock.min-quantum" = 512;
-        "default.clock.max-quantum" = 512;
-      };
+
+    lowLatency = {
+      # enable this module
+      enable = true;
+      # defaults (no need to be set unless modified)
+      quantum = 64;
+      rate = 48000;
     };
+    # extraConfig.pipewire."92-low-latency" = {
+    #   "context.properties" = {
+    #     "default.clock.rate" = 44100;
+    #     "default.clock.quantum" = 512;
+    #     "default.clock.min-quantum" = 512;
+    #     "default.clock.max-quantum" = 512;
+    #   };
+    # };
   };
 
   services.udev.extraRules = ''

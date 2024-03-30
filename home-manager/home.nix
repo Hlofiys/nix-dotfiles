@@ -56,6 +56,8 @@ in
   };
 
   gtk.gtk3.bookmarks = [
+    "file:///mnt/files"
+    "file:///mnt/games"
     "file://${homeDirectory}/Documents"
     "file://${homeDirectory}/Music"
     "file://${homeDirectory}/Pictures"

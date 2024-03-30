@@ -21,6 +21,7 @@
     python311Packages.pynvim
     php82Packages.composer
     python311Packages.pip
+    maven
   ];
 in {
   home = {

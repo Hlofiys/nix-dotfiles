@@ -1,4 +1,4 @@
-{ pkgs, username, hostname, ... }: {
+{ pkgs, username, hostname, inputs, ... }: {
 
   imports = [
     ./hardware-configuration.nix
@@ -8,6 +8,8 @@
     #./hyprland.nix
     # ./laptop.nix
     ./locale.nix
+    inputs.nix-gaming.nixosModules.pipewireLowLatency
+    inputs.nix-gaming.nixosModules.platformOptimizations
   ];
 
   # nix
@@ -25,14 +27,19 @@
   programs.virt-manager.enable = true;
   virtualisation = {
     podman.enable = true;
+    podman.dockerCompat = true;
+    podman.defaultNetwork.settings.dns_enabled = true;
     libvirtd.enable = true;
   };
 
   # dconf
   programs.dconf.enable = true;
 
+  programs.java.enable = true;
+
   # packages
   environment.systemPackages = with pkgs; [
+    podman-compose
     home-manager
     neovim
     git
@@ -41,15 +48,19 @@
 
   environment.sessionVariables = {
     DOTNET_ROOT = "${pkgs.dotnet-sdk_8}";
+    JAVA_HOME = "${pkgs.jdk}";
   };
 
   
   #steam
   programs.steam = {
     enable = true;
+    platformOptimizations.enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
+
+  programs.gamemode.enable = true;
 
   # services
   services = {
@@ -61,6 +72,12 @@
     flatpak.enable = true;
     tailscale.enable = true;
     tailscale.useRoutingFeatures = "client";
+    syncthing = {
+      enable = true;
+      user = username;
+      dataDir = "/home/${username}/Documents";
+      configDir = "/home/${username}/.config/syncthing";
+    };
   };
 
   # gpu drivers
@@ -69,8 +86,9 @@
     driSupport32Bit = true;
   };
 
-  # kde connect
+  # firewall
   networking.firewall = rec {
+    allowedTCPPorts = [ 42420 22000 21027 ];
     allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
     allowedUDPPortRanges = allowedTCPPortRanges;
   };
@@ -105,7 +123,7 @@
   # bootloader
   boot = {
     initrd.kernelModules = [ "amdgpu" ];
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
     tmp.cleanOnBoot = true;
     supportedFilesystems = [ "ntfs" ];
     loader = {

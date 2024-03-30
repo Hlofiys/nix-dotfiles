@@ -50,6 +50,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-gaming = {
+      url = "github:fufexan/nix-gaming";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     #hyprland.url = "github:hyprwm/Hyprland";
     #hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
