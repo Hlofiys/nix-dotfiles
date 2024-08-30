@@ -1,17 +1,21 @@
 let
-  email = "hlofiys@gmail.com";
   name = "Hlofiys";
-in
-{
+in {
   programs.git = {
     enable = true;
     extraConfig = {
       color.ui = true;
-      core.editor = "vim";
+      core.editor = "nvim";
+      credential.helper = "store";
       github.user = name;
       push.autoSetupRemote = true;
     };
-    userEmail = email;
+    userEmail = "hlofiys@gmail.com";
     userName = name;
   };
+  programs.ssh = {
+    enable = true;
+    addKeysToAgent = "yes";
+  };
+  services.ssh-agent.enable = true;
 }
