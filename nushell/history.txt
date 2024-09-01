@@ -1,0 +1,266 @@
+ls
+nano .config/nushell/config.nu
+clear
+fastfetch 
+yay powershell
+nix flake
+ls
+cd Projects/
+ls
+cd EducationPlatformApp/
+ls
+nano .config/nushell/config.nu
+nano ~/.config/nushell/config.nu
+ls
+cd EducationPlatformApp/
+cd Projects/EducationPlatformApp/
+ls
+clear
+dotnet
+dotnet --list-sdks
+help shells
+shells
+clear
+nu oh-my.nu
+clear
+ls
+cd
+ls
+mkdir .local/nushell
+cd .local/nushell/
+cargo install --path .
+cargo install nu_plugin_gstat
+plugin add ~/.cargo/bin/nu_plugin_gstat
+cd
+cd Downloads/
+ls
+nu oh-my.nu
+use oh-my.nu 
+ls
+clear
+yay starship
+starship 
+starship init nu
+starship init nu > ~/.cache/starship/init.nu
+starship init nu | save -f ~/.cache/starship/init.nu
+use ~/.cache/starship/init.nu
+ls
+cd ..
+ls
+cd Projects/EducationPlatformApp/
+ls
+starship
+starship preset
+starship preset --help
+starship preset -l
+starship preset gruvbox-rainvow
+starship preset gruvbox-rainbow
+starship preset gruvbox-rainbow -o ~/.config/starship.toml
+clear
+ls
+cd ..
+ls
+cd BsacScheduleApp/
+ls
+starship
+starship completions
+starship completions nu
+ls
+nano ~/.config/nushell/config.nu
+echo $nu.config-path
+nano ~/.config/nushell/config.nu
+ls
+clear
+ls
+clear
+ls
+cd .config/fish/completions/
+ls
+cd ..
+ls
+cd
+ls
+starship completions nu
+ls
+cd Projects/
+ls
+gh
+gh repo clone hlofiys/nix-dotfiles
+ls
+cd nix-dotfiles/
+sl
+ls
+nix
+j
+clear
+ls
+cd ..
+ls
+cd EducationPlatformApp/
+ls
+cd Services/EmailService/
+ls
+nano ~/.config/nushell/config.nu
+yay oh-my-posh
+yay oh my posh
+curl -s https://ohmyposh.dev/install.sh | bash -s
+nano ~/.config/nushell/env.nu
+oh-my-posh 
+oh-my-posh config
+oh-my-posh init
+oh-my-posh init nu
+ls
+source .oh-my-posh.nu
+ls
+cd Projects/EducationPlatformApp/
+ls
+cd Services/EmailService/
+ls
+cd
+ls
+nano ~/.config/nushell/env.nu
+ls
+oh-my-posh init nu --config ./Downloads/atomic.omp.json
+ls
+clear
+ls
+oh-my-posh init nu --config ./Downloads/blueish.omp.json
+ls
+cd Projects/EducationPlatformApp/
+clear
+ls
+oh-my-posh init nu --config ./Downloads/clean-detailed.omp.json
+ls
+clear
+cd Projects/EducationPlatformApp/
+ls
+cd Services/EmailService/
+clear
+ls
+oh-my-posh init nu --config ./Downloads/hul10.omp.json
+ls
+clear
+ls
+cd Projects/EducationPlatformApp/
+cd Services/EmailService/
+ls
+oh-my-posh init nu --config ./Downloads/kushal.omp.json
+ls
+clear
+cd Services/EmailService/
+cd Projects/EducationPlatformApp/
+ls
+cd Services/EmailService/
+ls
+nano ~/.config/nushell/config.nu
+ls
+clear
+cd Projects/EducationPlatformApp/
+ls
+cd Services/EmailService/
+ls
+cd
+cd .config/
+cd
+nano ~/.config/starship.toml
+vim ~/.config/starship.toml
+cd Projects/EducationPlatformApp/Services/StatisticsService/
+ls
+cd ..
+vim ~/.config/starship.toml
+nano ~/.config/starship.toml
+ls
+nano ~/.config/starship.toml
+clear
+cd EmailService/
+ls
+cd ..
+ls
+cd ..
+ls
+nano flake.nix
+fastfetch 
+ls
+yay carapace-bin
+nano .config/nushell/env.nu
+nano .config/nushell/config.nu
+carapace 
+yay vincent
+ls
+export LS_COLORS=$(vivid generate dracula)
+$env:LS_COLORS = (vivid generate dracula)
+$env.LS_COLORS = (vivid generate dracula)
+yay vivit
+yay vivid
+$env.LS_COLORS = (vivid generate dracula)
+ls
+cd Projects/nix-dotfiles/nixos/
+ls
+cd ..
+ls
+cd nixos/
+ls
+cat configuration.nix 
+bat configuration.nix 
+clear
+iptables -A OUTPUT -p tcp -m string --string "account.jetbrains.com" --algo kmp -j REJECT
+sudo iptables -A OUTPUT -p tcp -m string --string "account.jetbrains.com" --algo kmp -j REJECT
+ssh prox-docker
+fastfetch 
+clear
+ls
+yay
+yay pop icon theme
+yay
+aura
+fastfetch 
+z
+yay zoxide
+yay atuine
+yay atuin
+atuin
+atuin init
+atuin init nu
+mkdir ~/.local/share/atuin/<\n>atuin init nu | save ~/.local/share/atuin/init.nu
+nano .config/nushell/config.nu
+z
+zoxide init nushell | save -f ~/.zoxide.nu
+nano .config/nushell/config.nu
+z
+cd
+cd Documents/
+ls
+cd
+cd Elden
+z Elden
+nano .config/nushell/config.nu
+alias
+alias cd=z
+alias cd z
+alias help
+tldr alias
+alias cd="z"
+alias cd = "z"
+alias cd = z
+nano .config/nushell/config.nu
+cd Bsac
+cd Stati
+ls
+cd Projects/EducationPlatformApp/Services/StatisticsService/
+ls
+cd ..
+ls
+cd ..
+ls
+cd ..
+cd
+cd Services
+ls
+cd
+cd Serv
+ls
+clear
+ls
+cd Projects/nix-dotfiles/
+ls
+git status
