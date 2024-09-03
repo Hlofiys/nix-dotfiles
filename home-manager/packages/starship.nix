@@ -27,6 +27,7 @@ let
       "$rust"
       "$java"
       "$c"
+      "$dotnet"
       "$golang"
       "$cmd_duration"
       "$status"
@@ -109,14 +110,18 @@ let
     golang = lang "" "blue";
     dart = lang "" "blue";
     elixir = lang "" "purple";
+    dotnet = lang "󰌛" "purple";
   };
   tomlFormat = pkgs.formats.toml { };
   starshipCmd = "${pkgs.starship}/bin/starship";
 in
 {
-  xdg.configFile."starship.toml" = {
-    source = tomlFormat.generate "starship-config" settings;
-  };
+  # xdg.configFile."starship.toml" = {
+  #   source = tomlFormat.generate "starship-config" settings;
+  # };
+  programs.starship.enable = true;
+  programs.starship.settings = pkgs.lib.importTOML ../../starship.toml;
+
 
   programs.bash.initExtra = ''
     eval "$(${starshipCmd} init bash)"
@@ -134,5 +139,14 @@ in
     extraConfig = ''
       use ${config.xdg.cacheHome}/starship/init.nu
     '';
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableNushellIntegration = true;
+  };
+  programs.carapace = {
+    enable = true;
+    enableNushellIntegration = true;
   };
 }

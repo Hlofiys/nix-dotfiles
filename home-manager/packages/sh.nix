@@ -23,6 +23,7 @@ let
     "gr" = "git reset --soft HEAD~1";
 
     "del" = "gio trash";
+    "cd" = "z";
 
     "lazypodman" ="DOCKER_HOST=unix:///run/user/1000/podman/podman.sock lazydocker";
   };
