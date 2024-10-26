@@ -54,6 +54,7 @@
     lazydocker
     nixd
     nixfmt-rfc-style
+    gcc
 
     # fun
     # glow

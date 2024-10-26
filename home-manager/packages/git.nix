@@ -13,6 +13,7 @@ in {
     userEmail = "hlofiys@gmail.com";
     userName = name;
   };
+  programs.gh.enable = true;
   programs.ssh = {
     enable = true;
     addKeysToAgent = "yes";

@@ -2,7 +2,7 @@
 {
   programs.wezterm = {
     enable = true;
-    extraLua = ''
+    extraConfig = ''
             -- Pull in the wezterm API
       local wezterm = require("wezterm")
 

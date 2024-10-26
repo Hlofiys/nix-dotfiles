@@ -40,6 +40,9 @@ in
     fish = {
       enable = true;
       shellAliases = aliases;
+      shellInit = ''
+        set fish_greeting
+      '';
     };
 
     atuin = {
