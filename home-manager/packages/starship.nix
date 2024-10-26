@@ -126,6 +126,10 @@ in
     eval "$(${starshipCmd} init zsh)"
   '';
 
+  programs.fish.initExtra = ''
+    eval "$(${starshipCmd} init fish)"
+    '';
+
   programs.nushell = {
     extraEnv = ''
       mkdir ${config.xdg.cacheHome}/starship

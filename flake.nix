@@ -108,5 +108,11 @@
           ];
         };
       };
+
+      devShells = forAllSystems (system: {
+        default = nixpkgs.legacyPackages.${system}.mkShell {
+          buildInputs = [ nixpkgs.legacyPackages.${system}.nixd ];
+        };
+      });
     };
 }
