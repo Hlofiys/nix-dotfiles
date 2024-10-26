@@ -9,6 +9,8 @@
     ./nvim.nix
     ./dconf.nix
     ./browser.nix
+    ./vscode.nix
+    ./wezterm.nix
   ];
 
   home.packages = with pkgs; [
@@ -24,8 +26,7 @@
     # vesktop
     # icon-library
     # dconf-editor
-    vscode-fhs
-    jetbrains.rider
+#    jetbrains.rider
     # telegram-desktop
     # bottles
     # protonplus
