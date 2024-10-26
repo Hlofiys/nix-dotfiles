@@ -58,9 +58,7 @@
       ];
       # This is a function that generates an attribute by calling a function you
       # pass to it, with each system as an argument
-      forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f {
-           pkgs = import nixpkgs { inherit system; };
-      });
+      forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
       # Your custom packages
@@ -113,7 +111,10 @@
 
       devShells = forAllSystems (system: {
         default = nixpkgs.legacyPackages.${system}.mkShell {
-          buildInputs = [ nixpkgs.legacyPackages.${system}.nixd ];
+          buildInputs = with nixpkgs.legacyPackages.${system}; [
+            nixd
+            nixfmt-rfc-style
+          ];
         };
       });
     };
