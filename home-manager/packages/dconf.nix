@@ -94,7 +94,7 @@ with lib.hm.gvariant;
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Super>T";
-      command = "kgx";
+      command = "wezterm";
       name = "term";
     };
 
@@ -108,7 +108,7 @@ with lib.hm.gvariant;
     "org/gnome/shell" = {
       favorite-apps = [
         "firefox.desktop"
-        "org.gnome.Console.desktop"
+        "org.wezfurlong.wezterm.desktop"
         "org.gnome.Nautilus.desktop"
         "org.gnome.Calendar.desktop"
         "obsidian.desktop"

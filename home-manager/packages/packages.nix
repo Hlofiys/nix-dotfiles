@@ -55,6 +55,7 @@
     nixd
     nixfmt-rfc-style
     gcc
+    fishPlugins.tide
 
     # fun
     # glow

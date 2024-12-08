@@ -10,7 +10,7 @@ in
   # xdg.configFile."starship.toml" = {
   #   source = tomlFormat.generate "starship-config" settings;
   # };
-  programs.starship.enable = true;
+  programs.starship.enable = false;
   programs.starship.settings = pkgs.lib.importTOML ../../starship.toml;
 
 
@@ -22,9 +22,9 @@ in
     eval "$(${starshipCmd} init zsh)"
   '';
 
-  programs.fish.shellInit= ''
-    eval "$(${starshipCmd} init fish)"
-    '';
+  # programs.fish.shellInit= ''
+  #   eval "$(${starshipCmd} init fish)"
+  #   '';
 
   programs.nushell = {
     extraEnv = ''

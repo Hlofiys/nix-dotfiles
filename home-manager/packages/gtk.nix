@@ -4,7 +4,7 @@
   ...
 }:
 let
-  nerdfonts = pkgs.nerdfonts.override {
+  /*nerdfonts = pkgs.nerdfonts.override {
     fonts = [
       "Ubuntu"
       "UbuntuMono"
@@ -14,14 +14,14 @@ let
       "Mononoki"
     ];
   };
-
+*/
   theme = {
     name = "adw-gtk3-dark";
     package = pkgs.adw-gtk3;
   };
   font = {
     name = "Ubuntu Nerd Font";
-    package = nerdfonts;
+    package = pkgs.nerd-fonts.ubuntu;
     size = 11;
   };
   iconTheme = {
@@ -39,6 +39,7 @@ in
       iconTheme.package
       adwaita-icon-theme
       papirus-icon-theme
+      nerd-fonts.meslo-lg
     ];
     file = {
       ".config/gtk-4.0/gtk.css".text = ''
