@@ -7,6 +7,9 @@
         "terminal.integrated.fontFamily" = "CaskaydiaCove Nerd Font";
         "nix.enableLanguageServer" = true;
         "nix.serverPath" = "nixd";
+        "workbench.colorTheme" = "Catppuccin Mocha";
+        "workbench.iconTheme" = "catppuccin-mocha";
+        "window.menuBarVisibility" = "toggle";
       };
       extensions = with pkgs.vscode-extensions; [
         jnoortheen.nix-ide
@@ -16,6 +19,8 @@
         cweijan.vscode-database-client2
         visualstudioexptteam.vscodeintellicode
         christian-kohler.path-intellisense
+        catppuccin.catppuccin-vsc
+        catppuccin.catppuccin-vsc-icons
       ];
     };
   };

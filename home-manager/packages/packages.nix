@@ -33,13 +33,14 @@
     # figma-linux
     # cartridges
     # postman
-    prismlauncher
+    # prismlauncher
     # mangohud
     # goverlay
     gnome-extension-manager
     gnome-tweaks
 
     # tools
+    fastfetch
     bat
     eza
     fd
