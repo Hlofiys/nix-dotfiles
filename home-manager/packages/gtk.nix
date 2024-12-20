@@ -4,17 +4,6 @@
   ...
 }:
 let
-  /*nerdfonts = pkgs.nerdfonts.override {
-    fonts = [
-      "Ubuntu"
-      "UbuntuMono"
-      "CascadiaCode"
-      "FantasqueSansMono"
-      "FiraCode"
-      "Mononoki"
-    ];
-  };
-*/
   theme = {
     name = "adw-gtk3-dark";
     package = pkgs.adw-gtk3;
@@ -39,6 +28,8 @@ in
       iconTheme.package
       adwaita-icon-theme
       papirus-icon-theme
+      nerd-fonts.ubuntu-mono
+      nerd-fonts.caskaydia-cove
       nerd-fonts.meslo-lg
     ];
     file = {

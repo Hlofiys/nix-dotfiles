@@ -30,11 +30,11 @@
   # bootloader
   boot = {
     initrd.kernelModules = [ "amdgpu" ];
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = pkgs.linuxPackages_latest;
     tmp.cleanOnBoot = true;
     supportedFilesystems = [ "ntfs" ];
     loader = {
-      timeout = 0;
+      timeout = 2;
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
@@ -93,6 +93,8 @@
         flake-registry = "";
         # Workaround for https://github.com/NixOS/nix/issues/9574
         nix-path = config.nix.nixPath;
+
+        auto-optimise-store = true;
 
         extra-substituters = [
           "https://nix-community.cachix.org"
@@ -186,6 +188,8 @@
     enable32Bit = true;
   };
 
+  hardware.opengl.driSupport32Bit = true;
+
   # firewall
   networking.firewall = rec {
     allowedTCPPorts = [
@@ -213,6 +217,7 @@
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
     jack.enable = true;
+    wireplumber.enable = true;
 
     lowLatency = {
       # enable this module
