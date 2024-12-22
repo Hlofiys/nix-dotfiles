@@ -15,27 +15,24 @@
 
   home.packages = with pkgs; [
     # gui
-    # mpv
-    # libreoffice
-    # spotify
-    # d-spy
-    # github-desktop
-    # gimp
-    # krita
-    # transmission_4-gtk
-    # vesktop
-    # icon-library
-    # dconf-editor
-#    jetbrains.rider
-    # telegram-desktop
-    # bottles
-    # protonplus
-    # figma-linux
-    # cartridges
-    # postman
-    # prismlauncher
-    # mangohud
-    # goverlay
+    mpv
+    libreoffice
+    d-spy
+    github-desktop
+    gimp
+    krita
+    transmission_4-gtk
+    vesktop
+    icon-library
+    dconf-editor
+    telegram-desktop
+    bottles
+    protonplus
+    cartridges
+    postman
+    prismlauncher
+    mangohud
+    goverlay
     gnome-extension-manager
     gnome-tweaks
 

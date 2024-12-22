@@ -33,6 +33,16 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-gaming.inputs.nixpkgs.follows = "nixpkgs";
 
+    oskars-dotfiles = {
+      url = "github:oskardotglobal/.dotfiles/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    winapps = {
+      url = "github:winapps-org/winapps";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     firefox-gnome-theme = {
       url = "github:rafaelmardojai/firefox-gnome-theme";
       flake = false;
@@ -44,6 +54,8 @@
       self,
       nixpkgs,
       home-manager,
+      oskars-dotfiles,
+      winapps,
       ...
     }@inputs:
     let
@@ -89,6 +101,18 @@
             # > Our main nixos configuration file <
             ./nixos/configuration.nix
             inputs.flake-programs-sqlite.nixosModules.programs-sqlite
+            (
+              { pkgs, ... }:
+              {
+                nixpkgs.overlays = [ oskars-dotfiles.overlays.spotx ];
+                environment.systemPackages = 
+                [ 
+                  pkgs.spotify
+                  winapps.packages.x86_64-linux.winapps
+                  winapps.packages.x86_64-linux.winapps-launcher # optional 
+                ];
+              }
+            )
           ];
         };
       };

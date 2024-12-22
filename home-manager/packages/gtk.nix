@@ -49,12 +49,6 @@ in
     inherit font iconTheme;
     theme.name = theme.name;
     enable = true;
-    gtk3.extraCss = ''
-      headerbar, .titlebar,
-      .csd:not(.popup):not(tooltip):not(messagedialog) decoration{
-        border-radius: 0;
-      }
-    '';
   };
 
   qt = {

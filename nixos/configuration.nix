@@ -188,8 +188,6 @@
     enable32Bit = true;
   };
 
-  hardware.opengl.driSupport32Bit = true;
-
   # firewall
   networking.firewall = rec {
     allowedTCPPorts = [
@@ -237,6 +235,14 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    gnomeExtensions.gsconnect
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.vitals
+    gnomeExtensions.tailscale-qs
+    gnomeExtensions.appindicator
+    gnomeExtensions.caffeine
+    gnomeExtensions.clipboard-indicator
+    gnomeExtensions.logo-menu
     #  wget
   ];
 
@@ -272,6 +278,10 @@
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       platformOptimizations.enable = true;
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+      ]
+      ;
     };
   };
 
