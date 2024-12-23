@@ -54,6 +54,8 @@
     nixfmt-rfc-style
     gcc
     fishPlugins.tide
+    bsac-cli
+    spotify
 
     # fun
     glow

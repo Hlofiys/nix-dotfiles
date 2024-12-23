@@ -11,6 +11,39 @@
     # example = prev.example.overrideAttrs (oldAttrs: rec {
     # ...
     # });
+    spotify = prev.spotify.overrideAttrs (old: {
+      nativeBuildInputs =
+        old.nativeBuildInputs
+        ++ (with prev; [
+          util-linux
+          perl
+          unzip
+          zip
+          curl
+        ]);
+
+      unpackPhase =
+        builtins.replaceStrings
+          [ "runHook postUnpack" ]
+          [
+            ''
+              patchShebangs --build ${inputs.spotx}
+              runHook postUnpack
+            ''
+          ]
+          old.unpackPhase;
+
+      installPhase =
+        builtins.replaceStrings
+          [ "runHook postInstall" ]
+          [
+            ''
+              bash ${inputs.spotx} -f -P "$out/share/spotify"
+              runHook postInstall
+            ''
+          ]
+          old.installPhase;
+    });
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will

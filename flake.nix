@@ -102,10 +102,8 @@
             ./nixos/configuration.nix
             inputs.flake-programs-sqlite.nixosModules.programs-sqlite
             (
-              { pkgs, ... }:
               {
                 environment.systemPackages = [
-                  pkgs.spotify
                   winapps.packages.x86_64-linux.winapps
                   winapps.packages.x86_64-linux.winapps-launcher # optional
                 ];
