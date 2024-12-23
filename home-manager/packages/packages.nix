@@ -56,11 +56,11 @@
     fishPlugins.tide
 
     # fun
-    # glow
-    # slides
-    # yabridge
-    # yabridgectl
-    # wine-staging
-    # ani-cli
+    glow
+    slides
+    yabridge
+    yabridgectl
+    wine-staging
+    ani-cli
   ];
 }

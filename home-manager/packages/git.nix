@@ -1,6 +1,7 @@
 let
   name = "Hlofiys";
-in {
+in
+{
   programs.git = {
     enable = true;
     extraConfig = {

@@ -51,7 +51,10 @@ with lib.hm.gvariant;
       switch-to-workspace-4 = [ "<Super>4" ];
       switch-to-workspace-5 = [ "<Super>5" ];
       toggle-fullscreen = [ "<Super>g" ];
-      switch-input-source = [ "<Shift>Alt_L"  "<Alt>Shift_L"];
+      switch-input-source = [
+        "<Shift>Alt_L"
+        "<Alt>Shift_L"
+      ];
     };
 
     "org/gnome/shell/keybindings" = {

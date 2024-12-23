@@ -21,6 +21,7 @@
         christian-kohler.path-intellisense
         catppuccin.catppuccin-vsc
         catppuccin.catppuccin-vsc-icons
+        leonardssh.vscord
       ];
     };
   };

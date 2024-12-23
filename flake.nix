@@ -33,9 +33,10 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-gaming.inputs.nixpkgs.follows = "nixpkgs";
 
-    oskars-dotfiles = {
-      url = "github:oskardotglobal/.dotfiles/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+    spotx = {
+      url = "https://raw.githubusercontent.com/SpotX-Official/SpotX-Bash/21481cea97bac720590c2aad8b1fc2c58c9ec8f9/spotx.sh";
+      flake = false;
+      type = "file";
     };
 
     winapps = {
@@ -54,7 +55,6 @@
       self,
       nixpkgs,
       home-manager,
-      oskars-dotfiles,
       winapps,
       ...
     }@inputs:
@@ -104,12 +104,10 @@
             (
               { pkgs, ... }:
               {
-                nixpkgs.overlays = [ oskars-dotfiles.overlays.spotx ];
-                environment.systemPackages = 
-                [ 
+                environment.systemPackages = [
                   pkgs.spotify
                   winapps.packages.x86_64-linux.winapps
-                  winapps.packages.x86_64-linux.winapps-launcher # optional 
+                  winapps.packages.x86_64-linux.winapps-launcher # optional
                 ];
               }
             )

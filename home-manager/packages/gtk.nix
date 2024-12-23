@@ -32,15 +32,6 @@ in
       nerd-fonts.caskaydia-cove
       nerd-fonts.meslo-lg
     ];
-    file = {
-      ".config/gtk-4.0/gtk.css".text = ''
-        window.messagedialog .response-area > button,
-        window.dialog.message .dialog-action-area > button,
-        .background.csd{
-          border-radius: 0;
-        }
-      '';
-    };
   };
 
   fonts.fontconfig.enable = true;

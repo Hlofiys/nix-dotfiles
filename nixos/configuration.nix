@@ -171,11 +171,11 @@
   };
 
   # virtualisation
-  #programs.virt-manager.enable = true;
+  programs.virt-manager.enable = true;
   virtualisation = {
     podman.enable = true;
     docker.enable = true;
-    #libvirtd.enable = true;
+    libvirtd.enable = true;
   };
 
   # bluetooth
@@ -258,16 +258,16 @@
       "compress=zstd"
       "noatime"
     ];
-    "/mnt/files" = 
-    { device = "/dev/disk/by-label/Files";
+    "/mnt/files" = {
+      device = "/dev/disk/by-label/Files";
       fsType = "ext4";
     };
-    "/mnt/games" = 
-    { device = "/dev/disk/by-label/Games";
+    "/mnt/games" = {
+      device = "/dev/disk/by-label/Games";
       fsType = "ext4";
     };
-    "/mnt/trash" = 
-    { device = "/dev/disk/by-label/Trash";
+    "/mnt/trash" = {
+      device = "/dev/disk/by-label/Trash";
       fsType = "ntfs";
     };
   };
