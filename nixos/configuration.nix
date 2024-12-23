@@ -137,7 +137,10 @@
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = [ "wheel" "docker" ];
+      extraGroups = [
+        "wheel"
+        "docker"
+      ];
 
       shell = pkgs.fish;
     };
@@ -246,6 +249,29 @@
     #  wget
   ];
 
+  #btrfs options
+
+  fileSystems = {
+    "/".options = [ "compress=zstd" ];
+    "/home".options = [ "compress=zstd" ];
+    "/nix".options = [
+      "compress=zstd"
+      "noatime"
+    ];
+    "/mnt/files" = 
+    { device = "/dev/disk/by-label/Files";
+      fsType = "ext4";
+    };
+    "/mnt/games" = 
+    { device = "/dev/disk/by-label/Games";
+      fsType = "ext4";
+    };
+    "/mnt/trash" = 
+    { device = "/dev/disk/by-label/Trash";
+      fsType = "ntfs";
+    };
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -280,8 +306,7 @@
       platformOptimizations.enable = true;
       extraCompatPackages = with pkgs; [
         proton-ge-bin
-      ]
-      ;
+      ];
     };
   };
 

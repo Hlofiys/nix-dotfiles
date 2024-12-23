@@ -13,7 +13,6 @@ with lib.hm.gvariant;
           "ru"
         ])
       ];
-      xkb-options = [ "grp:alt_shift_toggle" ];
     };
 
     "org/gnome/desktop/search-providers" = {
@@ -52,6 +51,7 @@ with lib.hm.gvariant;
       switch-to-workspace-4 = [ "<Super>4" ];
       switch-to-workspace-5 = [ "<Super>5" ];
       toggle-fullscreen = [ "<Super>g" ];
+      switch-input-source = [ "<Shift>Alt_L"  "<Alt>Shift_L"];
     };
 
     "org/gnome/shell/keybindings" = {
@@ -66,7 +66,6 @@ with lib.hm.gvariant;
       mouse-button-modifier = "<Super>";
       num-workspaces = 5;
       resize-with-right-button = true;
-      focus-mode = "sloppy";
     };
 
     "org/gnome/mutter" = {
@@ -110,7 +109,7 @@ with lib.hm.gvariant;
         "firefox.desktop"
         "org.wezfurlong.wezterm.desktop"
         "org.gnome.Nautilus.desktop"
-        "org.gnome.Calendar.desktop"
+        "steam.desktop"
         "obsidian.desktop"
         "transmission-gtk.desktop"
         "caprine.desktop"
