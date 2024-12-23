@@ -11,6 +11,7 @@
     ./browser.nix
     ./vscode.nix
     ./wezterm.nix
+    ./helix.nix
   ];
 
   home.packages = with pkgs; [
@@ -64,5 +65,13 @@
     yabridgectl
     wine-staging
     ani-cli
+
+    #sdks
+    dotnet-sdk_9
+    dotnet-ef
+    go
+    rustc
+    cargo
+    jdk
   ];
 }

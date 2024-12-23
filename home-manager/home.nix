@@ -40,7 +40,7 @@
     config = {
       # Disable if you don't want unfree packages
       allowUnfree = true;
-      extra-trusted-users = "hlofiys";
+      extra-trusted-users = [ "hlofiys" ];
     };
   };
 

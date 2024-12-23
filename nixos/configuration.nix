@@ -96,6 +96,8 @@
 
         auto-optimise-store = true;
 
+        extra-trusted-users = [ "hlofiys" ];
+
         extra-substituters = [
           "https://nix-community.cachix.org"
           "https://hyprland.cachix.org"
