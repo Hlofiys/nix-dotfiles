@@ -12,6 +12,7 @@
     ./vscode.nix
     ./wezterm.nix
     ./helix.nix
+    ./k9s.nix
   ];
 
   home.packages = with pkgs; [
@@ -57,6 +58,11 @@
     fishPlugins.tide
     bsac-cli
     spotify
+
+    #devops
+    terraform
+    talosctl
+    kubectl
 
     # fun
     glow

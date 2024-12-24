@@ -18,6 +18,7 @@
       vscode-langservers-extracted
       clang
       nil
+      delve
     ];
   };
 }
