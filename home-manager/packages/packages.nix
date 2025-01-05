@@ -28,15 +28,17 @@
     icon-library
     dconf-editor
     telegram-desktop
-    bottles
+    stable.bottles
     protonplus
     cartridges
     postman
     prismlauncher
     mangohud
     goverlay
-    gnome-extension-manager
+    stable.gnome-extension-manager
     gnome-tweaks
+    spotify
+    ghostty
 
     # tools
     fastfetch
@@ -57,7 +59,8 @@
     gcc
     fishPlugins.tide
     bsac-cli
-    spotify
+    android-tools
+    usbutils
 
     #devops
     terraform
@@ -71,6 +74,8 @@
     yabridgectl
     wine-staging
     ani-cli
+    vcmi
+    arnis
 
     #sdks
     dotnet-sdk_9

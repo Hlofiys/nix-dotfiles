@@ -3,4 +3,5 @@
 pkgs: {
   # example = pkgs.callPackage ./example { };
   bsac-cli = pkgs.callPackage ./bsac-cli.nix { };
+  arnis = pkgs.callPackage ./arnis.nix { };
 }

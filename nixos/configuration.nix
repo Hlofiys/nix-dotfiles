@@ -62,7 +62,7 @@
       # Add overlays your own flake exports (from overlays and pkgs dir):
       outputs.overlays.additions
       outputs.overlays.modifications
-      outputs.overlays.unstable-packages
+      outputs.overlays.stable-packages
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -239,6 +239,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    # synth
+    stable.carla
+    stable.sfizz
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     gnomeExtensions.gsconnect
     gnomeExtensions.blur-my-shell
