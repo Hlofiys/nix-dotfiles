@@ -9,8 +9,8 @@ let
     package = pkgs.adw-gtk3;
   };
   font = {
-    name = "Ubuntu Nerd Font";
-    package = pkgs.nerd-fonts.ubuntu;
+    name = "Inter Nerd Font";
+    package = pkgs.inter-nerdfont;
     size = 11;
   };
   iconTheme = {

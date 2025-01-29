@@ -13,6 +13,7 @@
     ./wezterm.nix
     ./helix.nix
     ./k9s.nix
+    ./zed.nix
   ];
 
   home.packages = with pkgs; [
@@ -28,7 +29,8 @@
     icon-library
     dconf-editor
     telegram-desktop
-    stable.bottles
+    bottles
+    heroic
     protonplus
     cartridges
     postman

@@ -97,17 +97,6 @@
         auto-optimise-store = true;
 
         extra-trusted-users = [ "hlofiys" ];
-
-        extra-substituters = [
-          "https://nix-community.cachix.org"
-          "https://hyprland.cachix.org"
-          "https://nix-gaming.cachix.org"
-        ];
-        extra-trusted-public-keys = [
-          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-          "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-          "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
-        ];
       };
       # Opinionated: disable channels
       channel.enable = false;
@@ -157,7 +146,6 @@
   services = {
     xserver = {
       enable = true;
-      displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
       excludePackages = [ pkgs.xterm ];
       videoDrivers = [ "amdgpu" ];
@@ -166,6 +154,9 @@
         variant = "";
       };
     };
+
+    desktopManager.cosmic.enable = true;
+    displayManager.cosmic-greeter.enable = true;
 
     flatpak.enable = true;
     tailscale.enable = true;
@@ -207,11 +198,10 @@
       }
     ];
     allowedUDPPortRanges = allowedTCPPortRanges;
-    extraCommands = ''iptables -A OUTPUT -p tcp -m string --string "account.jetbrains.com" --algo kmp -j REJECT'';
+    #extraCommands = ''iptables -A OUTPUT -p tcp -m string --string "account.jetbrains.com" --algo kmp -j REJECT'';
   };
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

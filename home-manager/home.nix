@@ -2,6 +2,7 @@
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 {
   outputs,
+  pkgs,
   ...
 }:
 {
@@ -48,12 +49,15 @@
   home = {
     username = "hlofiys";
     homeDirectory = "/home/hlofiys";
+    sessionVariables = {
+      DOTNET_ROOT = "${pkgs.dotnet-sdk}/share/dotnet/";
+    };
   };
-  
+
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
-  
+
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git.enable = true;

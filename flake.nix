@@ -23,15 +23,20 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
+    nixpkgs.follows = "nixos-cosmic/nixpkgs";
+    nixpkgs-stable.follows = "nixos-cosmic/nixpkgs-stable";
+
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.inputs.nixpkgs.follows = "nixos-cosmic/nixpkgs";
 
     flake-programs-sqlite.url = "github:wamserma/flake-programs-sqlite";
-    flake-programs-sqlite.inputs.nixpkgs.follows = "nixpkgs";
+    flake-programs-sqlite.inputs.nixpkgs.follows = "nixos-cosmic/nixpkgs";
 
     nix-gaming.url = "github:fufexan/nix-gaming";
-    nix-gaming.inputs.nixpkgs.follows = "nixpkgs";
+    nix-gaming.inputs.nixpkgs.follows = "nixos-cosmic/nixpkgs";
 
     spotx = {
       url = "https://raw.githubusercontent.com/SpotX-Official/SpotX-Bash/21481cea97bac720590c2aad8b1fc2c58c9ec8f9/spotx.sh";
@@ -41,7 +46,7 @@
 
     winapps = {
       url = "github:winapps-org/winapps";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixos-cosmic/nixpkgs";
     };
 
     firefox-gnome-theme = {
@@ -56,6 +61,7 @@
       nixpkgs,
       home-manager,
       winapps,
+      nixos-cosmic,
       ...
     }@inputs:
     let
@@ -101,6 +107,14 @@
             # > Our main nixos configuration file <
             ./nixos/configuration.nix
             inputs.flake-programs-sqlite.nixosModules.programs-sqlite
+            nixos-cosmic.nixosModules.default
+
+            {
+              nix.settings = {
+                substituters = [ "https://cosmic.cachix.org/" ];
+                trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+              };
+            }
 
             {
               environment.systemPackages = [
