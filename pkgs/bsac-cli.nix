@@ -14,7 +14,8 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-s8jl165kMkU2RAvNpzXkjm6TH6uOKGYFqETfATWaw00=";
   };
 
-  cargoHash = "sha256-zOS3vJw+9xBqdWRwb4mzNVyjtnPIg8xjXTw+O1oaX+c=";
+  useFetchCargoVendor = true;
+  cargoHash = "sha256-B6qDqz6y4SrUl0WWjMFi5g3ty/6IYPqfe7lDrPwU9Mw=";
 
   meta = with lib; {
     description = "Rust-powered cli for bsac college timetable";

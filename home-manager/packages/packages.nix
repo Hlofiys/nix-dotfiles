@@ -26,6 +26,7 @@
     krita
     transmission_4-gtk
     vesktop
+    discord
     icon-library
     dconf-editor
     telegram-desktop

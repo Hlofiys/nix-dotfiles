@@ -117,7 +117,7 @@ with lib.hm.gvariant;
         "transmission-gtk.desktop"
         "caprine.desktop"
         "teams-for-linux.desktop"
-        "vesktop.desktop"
+        "discord.desktop"
         "spotify.desktop"
         "com.usebottles.bottles.desktop"
         "org.gnome.Software.desktop"

@@ -29,6 +29,14 @@
             ];
           };
         };
+        lsp = {
+          discord_presence = {
+            idle = {
+              action = null;
+            };
+            git_integration = true;
+          };
+        };
       };
       extensions = [
         "html"

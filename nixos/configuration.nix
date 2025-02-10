@@ -147,6 +147,7 @@
     xserver = {
       enable = true;
       desktopManager.gnome.enable = true;
+      displayManager.gdm.enable = true;
       excludePackages = [ pkgs.xterm ];
       videoDrivers = [ "amdgpu" ];
       xkb = {
@@ -154,9 +155,6 @@
         variant = "";
       };
     };
-
-    desktopManager.cosmic.enable = true;
-    displayManager.cosmic-greeter.enable = true;
 
     flatpak.enable = true;
     tailscale.enable = true;

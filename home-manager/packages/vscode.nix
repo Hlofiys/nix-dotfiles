@@ -12,6 +12,7 @@
         "window.menuBarVisibility" = "toggle";
         "vscord.status.idle.enabled" = false;
         "vscord.status.idle.check" = false;
+        "vscord.status.state.text.editing" = "Working on {file_name}{file_extension}";
       };
       extensions = with pkgs.vscode-extensions; [
         jnoortheen.nix-ide

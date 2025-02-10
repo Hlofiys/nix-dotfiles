@@ -7,7 +7,6 @@
     };
     extraPackages = with pkgs; [
       rust-analyzer
-      lldb
       netcoredbg
       omnisharp-roslyn
       docker-compose-language-service
@@ -16,7 +15,6 @@
       gopls
       terraform-ls
       vscode-langservers-extracted
-      clang
       nil
       delve
     ];
