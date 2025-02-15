@@ -96,7 +96,7 @@ with lib.hm.gvariant;
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Super>T";
-      command = "wezterm";
+      command = "ghostty";
       name = "term";
     };
 
@@ -110,7 +110,7 @@ with lib.hm.gvariant;
     "org/gnome/shell" = {
       favorite-apps = [
         "firefox.desktop"
-        "org.wezfurlong.wezterm.desktop"
+        "com.mitchellh.ghostty.desktop"
         "org.gnome.Nautilus.desktop"
         "steam.desktop"
         "obsidian.desktop"

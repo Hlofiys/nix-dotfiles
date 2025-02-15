@@ -19,14 +19,15 @@
   home.packages = with pkgs; [
     # gui
     mpv
-    libreoffice
+    onlyoffice-bin
     d-spy
     github-desktop
     gimp
     krita
     transmission_4-gtk
-    vesktop
-    discord
+    (discord.override {
+      withVencord = true;
+    })
     icon-library
     dconf-editor
     telegram-desktop
@@ -38,10 +39,11 @@
     prismlauncher
     mangohud
     goverlay
-    stable.gnome-extension-manager
+    gnome-extension-manager
     gnome-tweaks
     spotify
     ghostty
+    jetbrains.datagrip
 
     # tools
     fastfetch
@@ -64,6 +66,7 @@
     bsac-cli
     android-tools
     usbutils
+    devenv
 
     #devops
     terraform
@@ -79,13 +82,5 @@
     ani-cli
     vcmi
     arnis
-
-    #sdks
-    dotnet-sdk_9
-    dotnet-ef
-    go
-    rustc
-    cargo
-    jdk
   ];
 }

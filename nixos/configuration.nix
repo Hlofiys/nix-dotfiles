@@ -114,6 +114,7 @@
   networking.networkmanager.enable = true;
 
   programs.fish.enable = true;
+  catppuccin.enable = true;
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
@@ -159,6 +160,10 @@
     flatpak.enable = true;
     tailscale.enable = true;
     tailscale.useRoutingFeatures = "client";
+    udev.extraRules = ''
+      ACTION=="add|change", ATTRS{name}=="Sony Interactive Entertainment DualSense Wireless Controller Touchpad", ENV{LIBINPUT_IGNORE_DEVICE}="1"
+      ACTION=="add|change", ATTRS{name}=="DualSense Wireless Controller Touchpad", ENV{LIBINPUT_IGNORE_DEVICE}="1"
+    '';
   };
 
   # virtualisation

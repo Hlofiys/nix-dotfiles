@@ -42,11 +42,11 @@ in
     enable = true;
   };
 
-  qt = {
-    enable = true;
-    platformTheme.name = "adwaita";
-    style.name = "adwaita-dark";
-  };
+  # qt = {
+  #   enable = true;
+  #   platformTheme.name = "adwaita";
+  #   style.name = "adwaita-dark";
+  # };
 
   home.file.".local/share/flatpak/overrides/global".text =
     let

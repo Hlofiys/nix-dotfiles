@@ -2,8 +2,14 @@
 {
   programs.helix = {
     enable = true;
-    settings = {
-      theme = "catppuccin_mocha";
+    languages = {
+      language-server.nixd = with pkgs; {
+        command = "${nixd}/bin/nixd";
+      };
+      language = [{
+        name = "nix";
+        language-servers = [ "nixd" ];
+      }];
     };
     extraPackages = with pkgs; [
       rust-analyzer
@@ -15,7 +21,10 @@
       gopls
       terraform-ls
       vscode-langservers-extracted
-      nil
+      typescript-language-server
+      ruff
+      clang
+      nixd
       delve
     ];
   };

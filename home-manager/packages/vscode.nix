@@ -26,6 +26,7 @@
         catppuccin.catppuccin-vsc-icons
         leonardssh.vscord
         ms-azuretools.vscode-docker
+        mkhl.direnv
       ];
     };
   };

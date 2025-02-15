@@ -12,7 +12,6 @@
             -- This is where you actually apply your config choices
             config.font = wezterm.font("MesloLGS Nerd Font")
             config.font_size = 12
-      			config.front_end="WebGpu"
             local custom = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
             custom.tab_bar.active_tab.bg_color = "#89b4fa"
             config.color_schemes = {
