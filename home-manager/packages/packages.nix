@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     ./git.nix
@@ -19,7 +19,7 @@
   home.packages = with pkgs; [
     # gui
     mpv
-    onlyoffice-bin
+    libreoffice-fresh
     d-spy
     github-desktop
     gimp
@@ -44,6 +44,7 @@
     spotify
     ghostty
     jetbrains.datagrip
+    inputs.zen-browser.packages.x86_64-linux.default
 
     # tools
     fastfetch

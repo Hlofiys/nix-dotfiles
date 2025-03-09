@@ -193,7 +193,9 @@
       42420
       22000
       21027
+      5123
     ];
+    allowedUDPPorts = [ 5123 ];
     allowedTCPPortRanges = [
       {
         from = 1714;

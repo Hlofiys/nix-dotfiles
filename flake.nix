@@ -44,10 +44,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    firefox-gnome-theme = {
-      url = "github:rafaelmardojai/firefox-gnome-theme";
-      flake = false;
-    };
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
     catppuccin.url = "github:catppuccin/nix";
     catppuccin.inputs.nixpkgs.follows = "nixpkgs";

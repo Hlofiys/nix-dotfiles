@@ -1,7 +1,7 @@
 {
   programs = {
     zed-editor = {
-      enable = true;
+      enable = false;
       userSettings = {
         features = {
           copilot = false;
@@ -14,6 +14,18 @@
         buffer_font_size = 16;
         terminal = {
           font-family = "MesloLGS NF";
+        };
+        assistant = {
+          default_model = {
+            provider = "google";
+            model = "gemini-2.0-flash";
+          };
+          inline_alternatives = [
+            {
+              provider = "google";
+              model = "gemini-2.0-flash-lite";
+            }
+          ];
         };
         languages = {
           Nix = {
@@ -43,6 +55,7 @@
         "csharp"
         "nix"
         "discord-presence"
+        "wakatime"
       ];
     };
   };
