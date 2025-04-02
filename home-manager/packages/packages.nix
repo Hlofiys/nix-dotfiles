@@ -45,6 +45,8 @@
     ghostty
     jetbrains.datagrip
     inputs.zen-browser.packages.x86_64-linux.default
+    code-cursor
+    zed-editor-fhs
 
     # tools
     fastfetch
@@ -68,6 +70,8 @@
     android-tools
     usbutils
     devenv
+    vscode-fhs
+    unar
 
     #devops
     terraform
@@ -83,5 +87,24 @@
     ani-cli
     vcmi
     arnis
+
+    # sdk
+    dotnet-sdk_9
+    dotnet-ef
+
+    # lsp
+    rust-analyzer
+    netcoredbg
+    omnisharp-roslyn
+    docker-compose-language-service
+    yaml-language-server
+    dockerfile-language-server-nodejs
+    gopls
+    terraform-ls
+    vscode-langservers-extracted
+    typescript-language-server
+    ruff
+    nixd
+    delve
   ];
 }

@@ -30,7 +30,7 @@
   # bootloader
   boot = {
     initrd.kernelModules = [ "amdgpu" ];
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_cachyos;
     tmp.cleanOnBoot = true;
     supportedFilesystems = [ "ntfs" ];
     loader = {
@@ -97,9 +97,21 @@
         auto-optimise-store = true;
 
         extra-trusted-users = [ "hlofiys" ];
+
+        extra-substituters = [
+          "https://nix-community.cachix.org"
+          "https://nix-gaming.cachix.org"
+        ];
+
+        extra-trusted-public-keys = [
+          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+          "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+        ];
       };
       # Opinionated: disable channels
       channel.enable = false;
+
+      gc.automatic = true;
 
       # Opinionated: make flake registry and nix path match flake inputs
       registry = lib.mapAttrs (_: flake: { inherit flake; }) flakeInputs;
@@ -186,6 +198,8 @@
     enable = true;
     enable32Bit = true;
   };
+
+  chaotic.mesa-git.enable = true;
 
   # firewall
   networking.firewall = rec {

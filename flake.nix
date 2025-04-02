@@ -5,12 +5,10 @@
     # substituers will be appended to the default substituters when fetching packages
     extra-substituters = [
       "https://nix-community.cachix.org"
-      "https://hyprland.cachix.org"
       "https://nix-gaming.cachix.org"
     ];
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
     ];
   };
@@ -22,6 +20,8 @@
     # at the same time. Here's an working example:
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
+
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
@@ -57,6 +57,7 @@
       home-manager,
       winapps,
       catppuccin,
+      chaotic,
       ...
     }@inputs:
     let
@@ -103,6 +104,7 @@
             ./nixos/configuration.nix
             inputs.flake-programs-sqlite.nixosModules.programs-sqlite
             catppuccin.nixosModules.catppuccin
+            chaotic.nixosModules.default
             {
               environment.systemPackages = [
                 winapps.packages.x86_64-linux.winapps
