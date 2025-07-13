@@ -17,6 +17,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     ./packages/packages.nix
+    inputs.stylix.homeManagerModules.stylix
   ];
 
   nixpkgs = {
@@ -69,4 +70,55 @@
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "24.11";
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Breeze";
+      package = pkgs.breeze-gtk;
+    };
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+    cursorTheme = {
+      name = "breeze_cursors";
+      package = pkgs.breeze-gtk;
+      size = 24;
+    };
+  };
+
+  stylix = {
+    enable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    image = "/home/hlofiys/Downloads/waterfall.png";
+    polarity = "dark";
+    fonts = {
+      serif = {
+        package = pkgs.noto-fonts;
+        name = "Noto Sans";
+      };
+      sansSerif = {
+        package = pkgs.noto-fonts;
+        name = "Noto Sans";
+      };
+      monospace = {
+        package = pkgs.noto-fonts;
+        name = "Noto Sans Mono";
+      };
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
+    };
+    icons = {
+      package = pkgs.papirus-icon-theme;
+      name = "Papirus-Dark";
+    };
+    cursor = {
+      package = pkgs.breeze-gtk;
+      name = "breeze_cursors";
+      size = 24;
+    };
+  };
 }

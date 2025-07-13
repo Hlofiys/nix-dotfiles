@@ -48,6 +48,11 @@
 
     catppuccin.url = "github:catppuccin/nix";
     catppuccin.inputs.nixpkgs.follows = "nixpkgs";
+
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -58,6 +63,7 @@
       winapps,
       catppuccin,
       chaotic,
+      stylix,
       ...
     }@inputs:
     let
@@ -128,6 +134,7 @@
           modules = [
             # > Our main home-manager configuration file <
             catppuccin.homeManagerModules.catppuccin
+            stylix.homeManagerModules.stylix
             ./home-manager/home.nix
           ];
         };

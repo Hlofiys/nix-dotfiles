@@ -157,17 +157,10 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   services = {
-    xserver = {
-      enable = true;
-      desktopManager.gnome.enable = true;
-      displayManager.gdm.enable = true;
-      excludePackages = [ pkgs.xterm ];
-      videoDrivers = [ "amdgpu" ];
-      xkb = {
-        layout = "us";
-        variant = "";
-      };
-    };
+    displayManager.sddm.enable = true;
+    displayManager.sddm.wayland.enable = true;
+    desktopManager.plasma6.enable = true;
+    xserver.enable = false;
 
     flatpak.enable = true;
     tailscale.enable = true;
@@ -252,14 +245,7 @@
     stable.carla
     stable.sfizz
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    gnomeExtensions.gsconnect
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.vitals
-    gnomeExtensions.tailscale-qs
-    gnomeExtensions.appindicator
-    gnomeExtensions.caffeine
-    gnomeExtensions.clipboard-indicator
-    gnomeExtensions.logo-menu
+    
     #  wget
   ];
 
@@ -327,4 +313,5 @@
   programs.nix-ld.enable = true;
 
   system.stateVersion = "24.11"; # Did you read the comment?
+  };
 }

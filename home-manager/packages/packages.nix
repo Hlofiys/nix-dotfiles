@@ -3,16 +3,16 @@
   imports = [
     ./git.nix
     ./direnv.nix
-    ./gtk.nix
     ./sh.nix
     ./starship.nix
     ./nvim.nix
-    ./dconf.nix
+    
     ./browser.nix
     ./vscode.nix
     ./wezterm.nix
     ./helix.nix
     ./k9s.nix
+    ./kde.nix
     ./zed.nix
   ];
 
@@ -24,7 +24,6 @@
     github-desktop
     gimp
     krita
-    transmission_4-gtk
     (discord.override {
       withVencord = true;
     })
@@ -33,19 +32,22 @@
     telegram-desktop
     bottles
     heroic
-    protonplus
-    cartridges
     postman
     prismlauncher
     mangohud
     goverlay
-    gnome-extension-manager
-    gnome-tweaks
     spotify
     ghostty
-    jetbrains.datagrip
-    inputs.zen-browser.packages.x86_64-linux.default
     code-cursor
+    pkgs.catppuccin-kde
+    # kdePackages.kdegraphics-thumbnailers
+    # kdePackages.gwenview
+    # kdePackages.spectacle
+    # kdePackages.kolourpaint
+    # kdePackages.ark
+    # kdePackages.dolphin
+    # kdePackages.konsole
+    # kdePackages.kate
     zed-editor-fhs
 
     # tools
