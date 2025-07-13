@@ -37,7 +37,6 @@ in
     };
   
   config.programs = {
-    command-not-found.enable = true;
     fish = {
       enable = true;
       shellAliases = aliases;

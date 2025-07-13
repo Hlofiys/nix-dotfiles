@@ -2,7 +2,6 @@
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 {
   inputs,
-  outputs,
   lib,
   config,
   pkgs,
@@ -29,7 +28,7 @@
 
   # bootloader
   boot = {
-    initrd.kernelModules = [ "amdgpu" ];
+    #initrd.kernelModules = [ "amdgpu" ];
     kernelPackages = pkgs.linuxPackages_cachyos;
     tmp.cleanOnBoot = true;
     supportedFilesystems = [ "ntfs" ];
@@ -60,9 +59,9 @@
     # You can add overlays here
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.stable-packages
+      inputs.self.outputs.overlays.additions
+      inputs.self.outputs.overlays.modifications
+      inputs.self.outputs.overlays.stable-packages
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -126,7 +125,6 @@
   networking.networkmanager.enable = true;
 
   programs.fish.enable = true;
-  catppuccin.enable = true;
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
@@ -161,8 +159,6 @@
     displayManager.sddm.wayland.enable = true;
     desktopManager.plasma6.enable = true;
     xserver.enable = false;
-
-    flatpak.enable = true;
     tailscale.enable = true;
     tailscale.useRoutingFeatures = "client";
     udev.extraRules = ''
@@ -179,6 +175,8 @@
     libvirtd.enable = true;
   };
 
+  programs.command-not-found.enable = true;
+
   # bluetooth
   hardware.bluetooth = {
     enable = true;
@@ -192,7 +190,7 @@
     enable32Bit = true;
   };
 
-  chaotic.mesa-git.enable = true;
+  #chaotic.mesa-git.enable = true;
 
   # firewall
   networking.firewall = rec {
@@ -245,7 +243,7 @@
     stable.carla
     stable.sfizz
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    
+
     #  wget
   ];
 
@@ -258,18 +256,18 @@
       "compress=zstd"
       "noatime"
     ];
-    "/mnt/files" = {
-      device = "/dev/disk/by-label/Files";
-      fsType = "ext4";
-    };
-    "/mnt/games" = {
-      device = "/dev/disk/by-label/Games";
-      fsType = "ext4";
-    };
-    "/mnt/trash" = {
-      device = "/dev/disk/by-label/Trash";
-      fsType = "ntfs";
-    };
+    # "/mnt/files" = {
+    #   device = "/dev/disk/by-label/Files";
+    #   fsType = "ext4";
+    # };
+    # "/mnt/games" = {
+    #   device = "/dev/disk/by-label/Games";
+    #   fsType = "ext4";
+    # };
+    # "/mnt/trash" = {
+    #   device = "/dev/disk/by-label/Trash";
+    #   fsType = "ntfs";
+    # };
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -298,6 +296,34 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
 
+  stylix = {
+    enable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    fonts = {
+      serif = {
+        package = pkgs.noto-fonts;
+        name = "Noto Sans";
+      };
+      sansSerif = {
+        package = pkgs.noto-fonts;
+        name = "Noto Sans";
+      };
+      monospace = {
+        package = pkgs.noto-fonts;
+        name = "Noto Sans Mono";
+      };
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
+    };
+    cursor = {
+      package = pkgs.kdePackages.breeze-gtk;
+      name = "breeze_cursors";
+      size = 24;
+    };
+  };
+
   programs = {
     steam = {
       enable = true;
@@ -313,5 +339,4 @@
   programs.nix-ld.enable = true;
 
   system.stateVersion = "24.11"; # Did you read the comment?
-  };
 }

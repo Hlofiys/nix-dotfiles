@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./git.nix
@@ -6,13 +6,10 @@
     ./sh.nix
     ./starship.nix
     ./nvim.nix
-    
-    ./browser.nix
     ./vscode.nix
     ./wezterm.nix
     ./helix.nix
     ./k9s.nix
-    ./kde.nix
     ./zed.nix
   ];
 
@@ -20,17 +17,14 @@
     # gui
     mpv
     libreoffice-fresh
-    d-spy
     github-desktop
+    firefox
     gimp
     krita
     (discord.override {
       withVencord = true;
     })
-    icon-library
-    dconf-editor
     telegram-desktop
-    bottles
     heroic
     postman
     prismlauncher
@@ -39,15 +33,6 @@
     spotify
     ghostty
     code-cursor
-    pkgs.catppuccin-kde
-    # kdePackages.kdegraphics-thumbnailers
-    # kdePackages.gwenview
-    # kdePackages.spectacle
-    # kdePackages.kolourpaint
-    # kdePackages.ark
-    # kdePackages.dolphin
-    # kdePackages.konsole
-    # kdePackages.kate
     zed-editor-fhs
 
     # tools

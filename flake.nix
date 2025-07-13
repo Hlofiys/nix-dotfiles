@@ -18,7 +18,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # You can access packages and modules from different nixpkgs revs
     # at the same time. Here's an working example:
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
@@ -44,11 +44,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
-
-    catppuccin.url = "github:catppuccin/nix";
-    catppuccin.inputs.nixpkgs.follows = "nixpkgs";
-
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -57,17 +52,14 @@
 
   outputs =
     {
-      self,
       nixpkgs,
       home-manager,
       winapps,
-      catppuccin,
       chaotic,
       stylix,
       ...
     }@inputs:
     let
-      inherit (self) outputs;
       # Supported systems for your flake packages, shell, etc.
       systems = [
         "aarch64-linux"
@@ -103,50 +95,34 @@
         # FIXME replace with your hostname
         sugoma = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs outputs;
+            inherit inputs;
           };
           modules = [
             # > Our main nixos configuration file <
             ./nixos/configuration.nix
             inputs.flake-programs-sqlite.nixosModules.programs-sqlite
-            catppuccin.nixosModules.catppuccin
             chaotic.nixosModules.default
+            stylix.nixosModules.stylix
+            home-manager.nixosModules.home-manager
             {
               environment.systemPackages = [
                 winapps.packages.x86_64-linux.winapps
                 winapps.packages.x86_64-linux.winapps-launcher # optional
               ];
+              # Home-manager user config as a NixOS module
+              home-manager = {
+                useGlobalPkgs = true;
+                backupFileExtension = "backup";
+                useUserPackages = true;
+                users.hlofiys = {
+                  imports = [
+                    ./home-manager/home.nix
+                  ];
+                };
+              };
             }
-
           ];
         };
       };
-
-      # Standalone home-manager configuration entrypoint
-      # Available through 'home-manager --flake .#your-username@your-hostname'
-      homeConfigurations = {
-        # FIXME replace with your username@hostname
-        "hlofiys@sugoma" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [
-            # > Our main home-manager configuration file <
-            catppuccin.homeManagerModules.catppuccin
-            stylix.homeManagerModules.stylix
-            ./home-manager/home.nix
-          ];
-        };
-      };
-
-      devShells = forAllSystems (system: {
-        default = nixpkgs.legacyPackages.${system}.mkShell {
-          buildInputs = with nixpkgs.legacyPackages.${system}; [
-            nixd
-            nixfmt-rfc-style
-          ];
-        };
-      });
     };
 }
